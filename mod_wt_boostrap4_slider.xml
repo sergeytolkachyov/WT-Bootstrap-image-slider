@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>WT Boostrap 4 image slider</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>04/03/2020</creationDate>
+	<copyright>Copyright (C) 2020 Sergey Tolkachyov. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>https://web-tolk.ru</authorUrl>
+	<version>1.0</version>
+	<description>MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_DESCRIPTION</description>
+	<files>
+		<filename module="mod_wt_boostrap4_slider">mod_wt_boostrap4_slider.php</filename>
+		<folder>tmpl</folder>
+		<folder>subform</folder>
+		<folder>languages</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_wt_boostrap4_slider.ini</language>
+		<language tag="en-GB">languages/en-GB.mod_wt_boostrap4_slider.sys.ini</language>
+		<language tag="ru-RU">languages/ru-RU.mod_wt_boostrap4_slider.ini</language>
+		<language tag="ru-RU">languages/ru-RU.mod_wt_boostrap4_slider.sys.ini</language>
+	</languages>
+
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+		<field name="use_individual_time_interval"  type="radio" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_INDIVIDUAL_TIME_INTERVAL" class="btn-group btn-group-yesno" default="0">
+					<option value="0">MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_INDIVIDUAL_TIME_INTERVAL_COMMON</option>
+					<option value="1">MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INDIVIDUAL</option>
+				</field>
+		<field name="time_interval"  type="text"  label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INT" showon="use_individual_time_interval:0"/>
+			<field name="fields"
+                       label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDES"
+                       type="subform"
+                       layout="joomla.form.field.subform.repeatable"
+                       formsource="/modules/mod_wt_boostrap4_slider/subform/fields.xml"
+                       multiple="true"
+                       buttons="add,remove"
+                />
+		</fieldset>
+		<fieldset name="settings">
+				<field name="use_controls"  type="radio" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_CONTROLS" class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="use_indicators"  type="radio" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_USE_INDICATORS" class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="crossfade"  type="radio" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_CROSSFADE" class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+		</fieldset>
+		<fieldset name="advanced">
+			<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+			/>
+
+			<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+			/>
+
+			<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					filter="integer"
+			>
+				<option value="1">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+			</field>
+
+			<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					filter="integer"
+			/>
+
+			<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+			>
+				<option value="static"></option>
+			</field>
+		</fieldset>
+
+
+	</fields>
+</config>
+<updateservers>
+        <server type="extension" name="WebTolkUpdateServer">https://web-tolk.ru/get.html?element=mod_wt_boostrap4_slider</server>
+    </updateservers>
+</extension>

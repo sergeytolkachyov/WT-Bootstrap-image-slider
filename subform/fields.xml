@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+      
+    <field name="image" type="media" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_IMAGE"/>
+	<field name="title" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_TITLE"/>
+	<field name="subtitle" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_SUBTITLE"/>
+	<field name="cta_btn" type="radio" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_CTA" class="btn-group btn-group-yesno" default="0">
+		<option value="0">JNO</option>
+		<option value="1">JYES</option>
+	</field>
+   <field name="cta_btn_text" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_CTA_TEXT" showon="cta_btn:1"/>
+	<field name="cta_btn_url" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_CTA_URL" showon="cta_btn:1"/>
+	<field name="cta_btn_css" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_CTA_CSS" showon="cta_btn:1" default="btn btn-primary"/>
+	<field name="cta_btn_goals" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_CTA_GOALS" showon="cta_btn:1"/>
+	<field name="individual_time_interval" type="text" label="MOD_WT_BOOTSTRAP4_IMAGE_SLIDER_SLIDE_INDIVIDUAL_TIME_INTERVAL"/>
+	
+	 
+</form>
