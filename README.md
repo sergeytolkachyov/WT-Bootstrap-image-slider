@@ -14,4 +14,5 @@ All the features of the slider come only from Bootstrap.
 - Adaptive images in the image carousel
 ## Adaptive graphics in the image slider
 Using adaptive images assumes that you prepare a separate image for each range of screen resolutions. Then the browser automatically determines which one is best suited for the user's device. For example, it is more reasonable for desktops to show a picture in the ratio of 16x9 (landscape orientation), while for mobile devices - 9x16 (portrait orientation). To do this, there is an HTML5 tag .The module settings allow you to specify images and @media request for this image with standard CSS syntax.
+# Adaptive graphics in module demo video
 [![WT Bootstrap image slider слайдшоу изображений для Joomla 4 с адаптивной графикой](https://img.youtube.com/vi/0uJ4urj8wqg/0.jpg)](https://www.youtube.com/watch?v=0uJ4urj8wqg)
