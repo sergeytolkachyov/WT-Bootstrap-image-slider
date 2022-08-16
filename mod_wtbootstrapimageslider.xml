@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>WT Bootstrap image slider</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>16/08/2022</creationDate>
+	<copyright>Copyright (C) 2022 Sergey Tolkachyov. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>https://web-tolk.ru</authorUrl>
+	<version>2.1.0</version>
+	<description>MOD_WTBOOTSTRAPIMAGESLIDER_DESC</description>
+	<scriptfile>script.php</scriptfile>
+	<files>
+		<filename module="mod_wtbootstrapimageslider">mod_wtbootstrapimageslider.php</filename>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+		<folder>subform</folder>
+		<folder>language</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_wtbootstrapimageslider.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_wtbootstrapimageslider.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.mod_wtbootstrapimageslider.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.mod_wtbootstrapimageslider.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field addfieldpath="modules/mod_wtbootstrapimageslider/fields" type="moduleinfo" name="moduleinfo"/>
+				<field name="use_individual_time_interval" type="radio"
+					   label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL"
+					   class="btn-group btn-group-yesno" default="0">
+					<option value="0">MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_COMMON</option>
+					<option value="1">MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INDIVIDUAL</option>
+				</field>
+				<field name="time_interval" type="text"
+					   label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INT"
+					   showon="use_individual_time_interval:0"/>
+				<field name="fields"
+					   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDES"
+					   type="subform"
+					   layout="joomla.form.field.subform.repeatable"
+					   formsource="/modules/mod_wtbootstrapimageslider/subform/fields.xml"
+					   multiple="true"
+					   buttons="add,remove,move"
+				/>
+			</fieldset>
+			<fieldset name="settings">
+				<field name="use_controls" type="radio" label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_CONTROLS"
+					   class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="use_indicators" type="radio" label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDICATORS"
+					   class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="crossfade" type="radio" label="MOD_WTBOOTSTRAPIMAGESLIDER_CROSSFADE"
+					   class="btn-group btn-group-yesno" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+						name="layout"
+						type="modulelayout"
+						label="JFIELD_ALT_LAYOUT_LABEL"
+						description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+						class="form-select"
+				/>
+
+				<field
+						name="moduleclass_sfx"
+						type="textarea"
+						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+						description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+						rows="3"
+				/>
+
+				<field
+						name="cache"
+						type="list"
+						label="COM_MODULES_FIELD_CACHING_LABEL"
+						description="COM_MODULES_FIELD_CACHING_DESC"
+						default="1"
+						filter="integer"
+				>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+						name="cache_time"
+						type="number"
+						label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+						description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+						default="900"
+						filter="integer"
+				/>
+
+				<field
+						name="cachemode"
+						type="hidden"
+						default="static"
+				>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+
+
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" name="Web Tolk - WT Bootstrap image slider">
+			https://web-tolk.ru/component/swjprojects/jupdate.html?element=mod_wtbootstrapimageslider
+		</server>
+	</updateservers>
+</extension>
