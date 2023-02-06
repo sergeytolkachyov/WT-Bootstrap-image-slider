@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade">
 	<name>WT Bootstrap image slider</name>
 	<author>Sergey Tolkachyov</author>
-	<creationDate>16/08/2022</creationDate>
+	<creationDate>06/02/2023</creationDate>
 	<copyright>Copyright (C) 2022 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<version>2.1.0</version>
+	<version>2.1.1</version>
 	<description>MOD_WTBOOTSTRAPIMAGESLIDER_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<files>
@@ -27,13 +27,18 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field addfieldpath="modules/mod_wtbootstrapimageslider/fields" type="moduleinfo" name="moduleinfo"/>
-				<field name="use_individual_time_interval" type="radio"
+				<field name="use_individual_time_interval"
+					   type="radio"
 					   label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL"
-					   class="btn-group btn-group-yesno" default="0">
+					   class="btn-group btn-group-yesno"
+					   filter="int"
+					   default="0">
 					<option value="0">MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_COMMON</option>
 					<option value="1">MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INDIVIDUAL</option>
 				</field>
-				<field name="time_interval" type="text"
+				<field name="time_interval"
+					   type="text"
+					   filter="int"
 					   label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL_INT"
 					   showon="use_individual_time_interval:0"/>
 				<field name="fields"

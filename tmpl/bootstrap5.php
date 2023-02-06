@@ -1,9 +1,9 @@
 <?php
 /**
  * WT Bootstrap image slider
- * @version        2.1.0
+ * @version        2.1.1
  * @package        Bootstrap image slider for Joomla
- * @copyright      Copyright (C) 2022 Sergey Tolkachyov
+ * @copyright      Copyright (C) 2023 Sergey Tolkachyov
  * @license        GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
  * @link           https://web-tolk.ru
  */
@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');
 //echo '<pre>';
 //print_r($params);
 //echo '</pre>';
-if ($use_individual_time_interval == 0 and $time_interval != "")
+if ($use_individual_time_interval == 0 && !empty($time_interval))
 {
 	$time_interval = 'interval: ' . $time_interval;
 }
@@ -76,7 +76,7 @@ else
 				<?php
 				if ($params->get("use_individual_time_interval") == 1)
 				{
-					echo "data-bs-interval=\"" . ($field->individual_time_interval * 1000) . "\"";
+					echo "data-bs-interval=\"" . ((int) $field->individual_time_interval * 1000) . "\"";
 				} ?>
 			>
 

@@ -1,9 +1,9 @@
 <?php
 /**
  * WT Bootstrap image slider
- * @version        2.1.0
+ * @version        2.1.1
  * @package        Bootstrap image slider for Joomla
- * @copyright      Copyright (C) 2022 Sergey Tolkachyov
+ * @copyright      Copyright (C) 2023 Sergey Tolkachyov
  * @license        GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
  * @link           https://web-tolk.ru
  */
@@ -15,7 +15,7 @@ use Joomla\CMS\Version;
 defined('_JEXEC') or die('Restricted access');
 
 
-if ($use_individual_time_interval == 0 and $time_interval != "")
+if ($use_individual_time_interval == 0 && !empty($time_interval))
 {
 	$time_interval = 'interval: ' . $time_interval;
 }
@@ -28,7 +28,21 @@ $script = '
 		jQuery("#wt_bs4_image_slider-' . $moduleId . '").carousel({' . $time_interval . '});
 	});
 	';
-$doc->addScriptDeclaration($script);
+
+
+if ((new Version())->isCompatible('4.0') == true)
+{
+	// For Joomla 4
+	/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+	$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+	$wa->addInlineScript($script);
+}
+else
+{
+	// For Joomla 3
+	Factory::getApplication()->getDocument()->addScriptDeclaration($script);
+}
+
 ?>
 
 <div id="wt_bs4_image_slider-<?php echo $moduleId; ?>" class="carousel slide <?php if ($params->get("crossfade") == 1)
@@ -56,7 +70,7 @@ echo $moduleclass_sfx; ?>" data-ride="carousel">
 			} ?>" <?php
 			if ($params->get("use_individual_time_interval") == 1)
 			{
-				echo "data-interval=\"" . ($field->individual_time_interval * 1000) . "\"";
+				echo "data-interval=\"" . ((int) $field->individual_time_interval * 1000) . "\"";
 			} ?>>
 
 				<?php

@@ -2,9 +2,9 @@
 /**
  * Bootstrap image slider
  *
- * @version        2.1.0
+ * @version        2.1.1
  * @package        Bootstrap image slider for Joomla
- * @copyright      Copyright (C) 2022 Sergey Tolkachyov
+ * @copyright      Copyright (C) 2023 Sergey Tolkachyov
  * @link           https://web-tolk.ru
  * @license        GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
  */
