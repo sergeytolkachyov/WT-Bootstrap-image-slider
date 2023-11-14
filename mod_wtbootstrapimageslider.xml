@@ -2,31 +2,31 @@
 <extension type="module" client="site" method="upgrade">
 	<name>WT Bootstrap image slider</name>
 	<author>Sergey Tolkachyov</author>
-	<creationDate>06/02/2023</creationDate>
-	<copyright>Copyright (C) 2022 Sergey Tolkachyov. All rights reserved.</copyright>
+	<creationDate>14/11/2023</creationDate>
+	<copyright>Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<version>2.1.1</version>
+	<version>3.0.0</version>
 	<description>MOD_WTBOOTSTRAPIMAGESLIDER_DESC</description>
 	<scriptfile>script.php</scriptfile>
+	<namespace path="src">Joomla\Module\Wtbootstrapimageslider</namespace>
 	<files>
-		<filename module="mod_wtbootstrapimageslider">mod_wtbootstrapimageslider.php</filename>
+		<folder module="mod_wtbootstrapimageslider">src</folder>
 		<folder>tmpl</folder>
-		<folder>fields</folder>
-		<folder>subform</folder>
+		<folder>services</folder>
 		<folder>language</folder>
 	</files>
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.mod_wtbootstrapimageslider.ini</language>
-		<language tag="en-GB">en-GB/en-GB.mod_wtbootstrapimageslider.sys.ini</language>
-		<language tag="ru-RU">ru-RU/ru-RU.mod_wtbootstrapimageslider.ini</language>
-		<language tag="ru-RU">ru-RU/ru-RU.mod_wtbootstrapimageslider.sys.ini</language>
+		<language tag="en-GB">en-GB/mod_wtbootstrapimageslider.ini</language>
+		<language tag="en-GB">en-GB/mod_wtbootstrapimageslider.sys.ini</language>
+		<language tag="ru-RU">ru-RU/mod_wtbootstrapimageslider.ini</language>
+		<language tag="ru-RU">ru-RU/mod_wtbootstrapimageslider.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field addfieldpath="modules/mod_wtbootstrapimageslider/fields" type="moduleinfo" name="moduleinfo"/>
+				<field addfieldprefix="Joomla\Module\Wtbootstrapimageslider\Site\Fields" type="moduleinfo" name="moduleinfo"/>
 				<field name="use_individual_time_interval"
 					   type="radio"
 					   label="MOD_WTBOOTSTRAPIMAGESLIDER_USE_INDIVIDUAL_TIME_INTERVAL"
@@ -45,8 +45,9 @@
 					   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDES"
 					   type="subform"
 					   layout="joomla.form.field.subform.repeatable"
-					   formsource="/modules/mod_wtbootstrapimageslider/subform/fields.xml"
+					   formsource="/modules/mod_wtbootstrapimageslider/src/Subform/fields.xml"
 					   multiple="true"
+					   parentclass="stack"
 					   buttons="add,remove,move"
 				/>
 			</fieldset>
@@ -113,13 +114,12 @@
 					<option value="static"></option>
 				</field>
 			</fieldset>
-
-
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" name="Web Tolk - WT Bootstrap image slider">
+		<server type="extension" name="WebTolk - WT Bootstrap image slider">
 			https://web-tolk.ru/component/swjprojects/jupdate.html?element=mod_wtbootstrapimageslider
 		</server>
 	</updateservers>
+	<changelogurl>https://web-tolk.ru/jchangelog?element=mod_wtbootstrapimageslider</changelogurl>
 </extension>

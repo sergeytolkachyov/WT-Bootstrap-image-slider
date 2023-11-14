@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field type="radio"
+		   name="slide_type"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_TYPE"
+		   class="btn-group btn-group-yesno"
+		   default="image">
+		<option value="image">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_TYPE_IMAGE</option>
+		<option value="custom_html">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_TYPE_CUSTOM_HTML</option>
+	</field>
+	<field type="textarea"
+		   name="slide_custom_html"
+		   label="Custom HTML"
+		   filter="raw"
+		   hint="Your custom HTML code here"
+		   showon="slide_type:custom_html"/>
+	<field type="radio"
+		   name="is_responsive_images"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_IS_RESPONSIVE_IMAGES"
+		   class="btn-group btn-group-yesno"
+		   default="0"
+		   showon="slide_type:image">
+		<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
+	<field name="responsive_images"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_RESPONSIVE_IMAGES"
+		   type="subform"
+		   layout="joomla.form.field.subform.repeatable-table"
+		   formsource="/modules/mod_wtbootstrapimageslider/src/Subform/responsive-images.xml"
+		   multiple="true"
+		   buttons="add,remove"
+		   showon="slide_type:image[AND]is_responsive_images:1"
+	/>
+    <field name="image"
+		   type="media"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_IMAGE"
+		   showon="slide_type:image"/>
+	<field name="title"
+		   type="text"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_TITLE"
+		   showon="slide_type:image"/>
+	<field name="subtitle"
+		   type="text"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_SUBTITLE"
+		   showon="slide_type:image"/>
+	<field name="cta_btn"
+		   type="radio"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_CTA"
+		   class="btn-group btn-group-yesno"
+		   default="0"
+		   showon="slide_type:image">
+		<option value="0">JNO</option>
+		<option value="1">JYES</option>
+	</field>
+   <field name="cta_btn_text"
+		  type="text"
+		  label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_CTA_TEXT"
+		  showon="slide_type:image[AND]cta_btn:1"/>
+
+	<field type="list"
+		   name="link_type"
+		   default="custom"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE"
+		   showon="slide_type:image[AND]cta_btn:1">
+		<option value="com_jshopping">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_JOOMSHOPPING_CATEGORY</option>
+		<option value="com_virtuemart">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_VIRTUEMART_CATEGORY</option>
+		<option value="com_phocacart">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_PHOCACART_CATEGORY</option>
+		<option value="com_content">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_COM_CONTENT_CATEGORY</option>
+		<option value="com_content_article">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_COM_CONTENT_ARTICLE</option>
+		<option value="menuitem">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_MENU_ITEM</option>
+		<option value="file">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_FILE</option>
+		<option value="custom">MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_CUSTOM_LINK</option>
+	</field>
+	<field addfieldprefix="Joomla\Module\Wtquicklinks\Site\Fields"
+		   type="jshoppingcategories"
+		   name="jshoppingcategories"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_JOOMSHOPPING_CATEGORY"
+		   showon="link_type:com_jshopping[AND]cta_btn:1"/>
+	<field addfieldpath="modules/mod_wtbootstrapimageslider/src/Fields"
+		   type="vmcategories"
+		   name="virtuemartcategories"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_VIRTUEMART_CATEGORY"
+		   showon="link_type:com_virtuemart[AND]cta_btn:1"/>
+	<field addfieldpath="modules/mod_wtbootstrapimageslider/src/Fields"
+		   type="phocacartcategory"
+		   name="phocacartcategory"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_PHOCACART_CATEGORY"
+		   showon="link_type:com_phocacart[AND]cta_btn:1"/>
+	<field type="category"
+		   extension="com_content"
+		   name="contentcategories"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_COM_CONTENT_CATEGORY"
+		   showon="link_type:com_content[AND]cta_btn:1"/>
+	<field type="menuitem"
+		   name="menuitem"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_MENU_ITEM"
+		   showon="link_type:menuitem[AND]cta_btn:1"/>
+	<field
+			addfieldprefix="Joomla\Component\Content\Administrator\Field"
+			name="com_content_article_id"
+			type="modal_article"
+			label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_COM_CONTENT_ARTICLE_SELECT_ARTICLE"
+			description="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_COM_CONTENT_ARTICLE_SELECT_ARTICLE_DESC"
+			select="true"
+			filter="integer"
+			showon="link_type:com_content_article[AND]cta_btn:1"
+	/>
+
+	<field type="media"
+		   name="file_uri"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_LINK_TYPE_FILE"
+		   types="images,audios,videos,documents"
+		   showon="link_type:file[AND]cta_btn:1"
+	/>
+
+	<field name="cta_btn_url"
+		   type="text"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_CTA_URL"
+		   showon="link_type:custom[AND]cta_btn:1"/>
+
+	<field name="cta_btn_css"
+		   type="text"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_CTA_CSS"
+		   showon="cta_btn:1[AND]slide_type:image"
+		   default="btn btn-primary"/>
+	<field name="cta_btn_goals"
+		   type="text"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_CTA_GOALS"
+		   showon="cta_btn:1[AND]slide_type:image"/>
+	<field name="individual_time_interval"
+		   type="text"
+		   filter="int"
+		   showon="use_individual_time_interval:1"
+		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_INDIVIDUAL_TIME_INTERVAL"/>
+</form>

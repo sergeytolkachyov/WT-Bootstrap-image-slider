@@ -1,29 +1,24 @@
 <?php
 /**
- * @package       WebTolk plugin info field
- * @version       1.0.0
- * @Author        Sergey Tolkachyov, https://web-tolk.ru
- * @copyright     Copyright (C) 2020 Sergey Tolkachyov
- * @license       GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
- * @since         1.0.0
+ * WT Bootstrap image slider
+ * @version        3.0.0
+ * @package        Bootstrap image slider for Joomla
+ * @copyright      Copyright (C) 2023 Sergey Tolkachyov
+ * @license        GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
+ * @link           https://web-tolk.ru
  */
-
+namespace Joomla\Module\Wtbootstrapimageslider\Site\Fields;
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Form\Field\SpacerField;
 use Joomla\CMS\Form\FormHelper;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Factory;
-use Joomla\Registry\Registry;
-use Joomla\CMS\Version;
 
-FormHelper::loadFieldClass('spacer');
-
-class JFormFieldModuleinfo extends JFormFieldSpacer
+class ModuleinfoField extends SpacerField
 {
 
-	protected $type = 'moduleinfo';
+	protected $type = 'Moduleinfo';
 
 	/**
 	 * Method to get the field input markup for a spacer.
@@ -60,26 +55,11 @@ class JFormFieldModuleinfo extends JFormFieldSpacer
 		$data   = $this->form->getData();
 		$module = $data->get('module');
 		$doc    = Factory::getApplication()->getDocument();
-		$inline_css = ".plugin-info-img{
-			    margin-right:auto;
-			    max-width: 100%;
-			}
+		$doc->addStyleDeclaration("
 			.plugin-info-img-svg:hover * {
 				cursor:pointer;
-			}";
-		if ((new Version())->isCompatible('4.0'))
-			{
-				// Joomla 4
-				/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-				$wa = $doc->getWebAssetManager();
-				$wa->addInlineStyle($inline_css);
 			}
-			else
-			{
-				// Joomla 3
-				$doc->addStyleDeclaration($inline_css);
-			}
-		
+		");
 
 		$wt_module_info = simplexml_load_file(JPATH_SITE . "/modules/" . $module . "/" . $module . ".xml");
 
@@ -114,5 +94,3 @@ class JFormFieldModuleinfo extends JFormFieldSpacer
 	}
 
 }
-
-?>
