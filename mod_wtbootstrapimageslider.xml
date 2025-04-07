@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade">
 	<name>WT Bootstrap image slider</name>
 	<author>Sergey Tolkachyov</author>
-	<creationDate>14/11/2023</creationDate>
-	<copyright>Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.</copyright>
+	<creationDate>07/04/2025</creationDate>
+	<copyright>Copyright (C) 2020-2025 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<description>MOD_WTBOOTSTRAPIMAGESLIDER_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<namespace path="src">Joomla\Module\Wtbootstrapimageslider</namespace>

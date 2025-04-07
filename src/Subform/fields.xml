@@ -39,10 +39,12 @@
 	<field name="title"
 		   type="text"
 		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_TITLE"
+		   filter="safehtml"
 		   showon="slide_type:image"/>
 	<field name="subtitle"
 		   type="text"
 		   label="MOD_WTBOOTSTRAPIMAGESLIDER_SLIDE_SUBTITLE"
+		   filter="safehtml"
 		   showon="slide_type:image"/>
 	<field name="cta_btn"
 		   type="radio"

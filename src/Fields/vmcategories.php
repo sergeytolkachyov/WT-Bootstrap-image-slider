@@ -11,10 +11,11 @@ defined('_JEXEC') or die();
 
 use Joomla\CMS\Form\FormHelper;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Form\Field\ListField;
 
 FormHelper::loadFieldClass('list');
 
-class JFormFieldVmcategories extends JFormFieldList
+class JFormFieldVmcategories extends ListField
 {
 
 	protected $type = 'vmcategories';
